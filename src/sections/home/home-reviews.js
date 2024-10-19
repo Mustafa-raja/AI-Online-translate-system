@@ -80,39 +80,7 @@ const reviews = [
 export const HomeReviews = () => (
   <div>
     <Container maxWidth="lg">
-      <Stack
-        justifyContent="center"
-        spacing={3}
-        sx={{ py: 3 }}
-      >
-        <Typography
-          align="center"
-          color="text.secondary"
-          variant="body2"
-        >
-          Used by companies like:
-        </Typography>
-        <Stack
-          alignItems="center"
-          direction="row"
-          flexWrap="wrap"
-          gap={4}
-          justifyContent="center"
-          sx={{
-            color: 'action.active',
-            '& > *': {
-              flex: '0 0 auto'
-            }
-          }}
-        >
-          <LogoSamsung />
-          <LogoVisma />
-          <LogoBolt />
-          <LogoAws />
-          <LogoAccenture />
-          <LogoAtt />
-        </Stack>
-      </Stack>
+      
       <Stack
         spacing={8}
         sx={{ py: '120px' }}
