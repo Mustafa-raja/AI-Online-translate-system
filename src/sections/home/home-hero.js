@@ -1,10 +1,18 @@
-import NextLink from 'next/link';
-import EyeIcon from '@untitled-ui/icons-react/build/esm/Eye';
-import LayoutBottomIcon from '@untitled-ui/icons-react/build/esm/LayoutBottom';
-import { Box, Button, Container, Rating, Stack, SvgIcon, Typography } from '@mui/material';
-import { useTheme } from '@mui/material/styles';
-import { paths } from '../../paths';
-import { HomeCodeSamples } from './home-code-samples';
+import NextLink from "next/link";
+import EyeIcon from "@untitled-ui/icons-react/build/esm/Eye";
+import LayoutBottomIcon from "@untitled-ui/icons-react/build/esm/LayoutBottom";
+import {
+  Box,
+  Button,
+  Container,
+  Rating,
+  Stack,
+  SvgIcon,
+  Typography,
+} from "@mui/material";
+import { useTheme } from "@mui/material/styles";
+import { paths } from "../../paths";
+import { HomeCodeSamples } from "./home-code-samples";
 
 export const HomeHero = () => {
   const theme = useTheme();
@@ -12,37 +20,40 @@ export const HomeHero = () => {
   return (
     <Box
       sx={{
-        backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'top center',
-        backgroundImage: 'url("/assets/gradient-bg.svg")',
-        pt: '120px'
+        backgroundColor: "neutral.800",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "top center",
+        // backgroundImage: 'url("/assets/gradient-bg.svg")',
+        color: "common.white",
+        py: "120px",
       }}
     >
       <Container maxWidth="lg">
         <Box maxWidth="sm">
-          <Typography
-            variant="h1"
-            sx={{ mb: 2 }}
-          >
-            Let us worry about the&nbsp;
-            <Typography
-              component="span"
-              color="primary.main"
-              variant="inherit"
+          <Typography variant="h1" sx={{ mb: 2 }}>
+            <span
+              style={{
+                background:
+                  "linear-gradient(to right, purple, #D5006D, purple)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                fontWeight: "bold",
+              }}
             >
-              User Experience
-            </Typography>
-            , you focus on Developing.
+              UX is our Expertise,
+            </span>
+            <span style={{ color: "#174bcf" }}> you focus on Developing.</span>
           </Typography>
           <Typography
-            color="text.secondary"
+            color="white"
             sx={{
               fontSize: 20,
-              fontWeight: 500
+              fontWeight: 500,
             }}
           >
-            A professional kit that comes with ready-to-use MUI components developed with one common
-            goal in mind, help you build faster & beautiful applications.
+            A professional kit that comes with ready-to-use MUI components
+            developed with one common goal in mind, help you build faster &
+            beautiful applications.
           </Typography>
           <Stack
             alignItems="center"
@@ -51,54 +62,44 @@ export const HomeHero = () => {
             spacing={1}
             sx={{ my: 3 }}
           >
-            <Rating
-              readOnly
-              value={4.7}
-              precision={0.1}
-              max={5}
-            />
+            <Rating readOnly value={4.7} precision={0.1} max={5} />
             <Typography
-              color="text.primary"
+              color="text.white"
               variant="caption"
               sx={{ fontWeight: 700 }}
             >
               4.7/5
             </Typography>
-            <Typography
-              color="text.secondary"
-              variant="caption"
-            >
+            <Typography color="text.secondary" variant="caption">
               based on (70+ reviews)
             </Typography>
           </Stack>
-          <Stack
-            alignItems="center"
-            direction="row"
-            spacing={2}
-          >
+          <Stack alignItems="center" direction="row" spacing={2}>
             <Button
               component={NextLink}
               href={paths.dashboard.index}
-              startIcon={(
+              startIcon={
                 <SvgIcon fontSize="small">
                   <EyeIcon />
                 </SvgIcon>
-              )}
-              sx={(theme) => theme.palette.mode === 'dark'
-                ? {
-                  backgroundColor: 'neutral.50',
-                  color: 'neutral.900',
-                  '&:hover': {
-                    backgroundColor: 'neutral.200'
-                  }
-                }
-                : {
-                  backgroundColor: 'neutral.900',
-                  color: 'neutral.50',
-                  '&:hover': {
-                    backgroundColor: 'neutral.700'
-                  }
-                }}
+              }
+              sx={(theme) =>
+                theme.palette.mode === "dark"
+                  ? {
+                      backgroundColor: "neutral.50",
+                      color: "neutral.900",
+                      "&:hover": {
+                        backgroundColor: "neutral.200",
+                      },
+                    }
+                  : {
+                      backgroundColor: "neutral.900",
+                      color: "neutral.50",
+                      "&:hover": {
+                        backgroundColor: "neutral.700",
+                      },
+                    }
+              }
               variant="contained"
             >
               Live Demo
@@ -107,11 +108,11 @@ export const HomeHero = () => {
               color="inherit"
               component={NextLink}
               href={paths.components.index}
-              startIcon={(
+              startIcon={
                 <SvgIcon fontSize="small">
                   <LayoutBottomIcon />
                 </SvgIcon>
-              )}
+              }
             >
               Components
             </Button>
@@ -119,45 +120,47 @@ export const HomeHero = () => {
         </Box>
         <Box
           sx={{
-            pt: '120px',
-            position: 'relative'
+            pt: "120px",
+            position: "relative",
           }}
         >
           <Box
             sx={{
-              overflow: 'hidden',
-              width: '90%',
+              overflow: "hidden",
+              width: "90%",
               fontSize: 0,
               mt: -2,
               mx: -2,
               pt: 2,
               px: 2,
-              '& img': {
+              "& img": {
                 borderTopLeftRadius: (theme) => theme.shape.borderRadius * 2.5,
                 borderTopRightRadius: (theme) => theme.shape.borderRadius * 2.5,
                 boxShadow: 16,
-                width: '100%'
-              }
+                width: "100%",
+              },
             }}
           >
             <img
-              src={theme.palette.mode === 'dark'
-                ? '/assets/home-thumbnail-dark.png'
-                : '/assets/home-thumbnail-light.png'}
+              src={
+                theme.palette.mode === "dark"
+                  ? "/assets/home-thumbnail-dark.png"
+                  : "/assets/home-thumbnail-light.png"
+              }
             />
           </Box>
           <Box
             sx={{
-              maxHeight: '100%',
-              maxWidth: '100%',
-              overflow: 'hidden',
-              position: 'absolute',
+              maxHeight: "100%",
+              maxWidth: "100%",
+              overflow: "hidden",
+              position: "absolute",
               right: 0,
               top: 40,
-              '& > div': {
+              "& > div": {
                 height: 460,
-                width: 560
-              }
+                width: 560,
+              },
             }}
           >
             <HomeCodeSamples />
