@@ -1,8 +1,8 @@
-import { useCallback, useState } from 'react';
-import { usePathname } from 'next/navigation';
-import NextLink from 'next/link';
-import PropTypes from 'prop-types';
-import Menu01Icon from '@untitled-ui/icons-react/build/esm/Menu01';
+import { useCallback, useState } from "react";
+import { usePathname } from "next/navigation";
+import NextLink from "next/link";
+import PropTypes from "prop-types";
+import Menu01Icon from "@untitled-ui/icons-react/build/esm/Menu01";
 import {
   Box,
   Button,
@@ -11,28 +11,28 @@ import {
   IconButton,
   Stack,
   SvgIcon,
-  useMediaQuery
-} from '@mui/material';
-import { alpha } from '@mui/material/styles';
-import { Logo } from '../../components/logo';
-import { useWindowScroll } from '../../hooks/use-window-scroll';
-import { paths } from '../../paths';
-import { PagesPopover } from './pages-popover';
-import { TopNavItem } from './top-nav-item';
+  useMediaQuery,
+} from "@mui/material";
+import { alpha } from "@mui/material/styles";
+import { Logo } from "../../components/logo";
+import { useWindowScroll } from "../../hooks/use-window-scroll";
+import { paths } from "../../paths";
+import { PagesPopover } from "./pages-popover";
+import { TopNavItem } from "./top-nav-item";
 
 const items = [
   {
-    title: 'Components',
-    path: paths.components.index
+    title: "Components",
+    path: paths.components.index,
   },
   {
-    title: 'Pages',
-    children: <PagesPopover />
+    title: "Pages",
+    children: <PagesPopover />,
   },
   {
-    title: 'Docs',
-    path: paths.docs.welcome
-  }
+    title: "Docs",
+    path: paths.docs.welcome,
+  },
 ];
 
 const TOP_NAV_HEIGHT = 64;
@@ -40,7 +40,7 @@ const TOP_NAV_HEIGHT = 64;
 export const TopNav = (props) => {
   const { onMobileNavOpen } = props;
   const pathname = usePathname();
-  const mdUp = useMediaQuery((theme) => theme.breakpoints.up('md'));
+  const mdUp = useMediaQuery((theme) => theme.breakpoints.up("md"));
   const [elevate, setElevate] = useState(false);
   const offset = 64;
   const delay = 100;
@@ -55,7 +55,7 @@ export const TopNav = (props) => {
 
   useWindowScroll({
     handler: handleWindowScroll,
-    delay
+    delay,
   });
 
   return (
@@ -63,41 +63,42 @@ export const TopNav = (props) => {
       component="header"
       sx={{
         left: 0,
-        position: 'fixed',
+        position: "fixed",
         right: 0,
         top: 0,
-        pt: 2,
-        zIndex: (theme) => theme.zIndex.appBar
+        width: "100%",
+        zIndex: (theme) => theme.zIndex.appBar,
       }}
     >
       <Container
-        maxWidth="lg"
+        maxWidth={false}
         sx={{
-          backdropFilter: 'blur(6px)',
-          backgroundColor: 'transparent',
-          borderRadius: 2.5,
-          boxShadow: 'none',
-          transition: (theme) => theme.transitions.create('box-shadow, background-color', {
-            easing: theme.transitions.easing.easeInOut,
-            duration: 200
-          }),
+          backgroundColor: "white",
+          boxShadow: "none",
+          transition: (theme) =>
+            theme.transitions.create("box-shadow, background-color", {
+              easing: theme.transitions.easing.easeInOut,
+              duration: 200,
+            }),
           ...(elevate && {
-            backgroundColor: (theme) => alpha(theme.palette.background.paper, 0.90),
-            boxShadow: 8
-          })
+            backgroundColor: (theme) =>
+              alpha(theme.palette.background.paper, 1),
+            boxShadow: 8,
+          }),
         }}
       >
         <Stack
           direction="row"
-          spacing={2}
-          sx={{ height: TOP_NAV_HEIGHT }}
+          alignItems="center"
+          sx={{
+            height: TOP_NAV_HEIGHT,
+            justifyContent: {
+              xs: "space-between",
+              md: "space-evenly",
+            },
+          }}
         >
-          <Stack
-            alignItems="center"
-            direction="row"
-            spacing={1}
-            sx={{ flexGrow: 1 }}
-          >
+          <Stack alignItems="center" direction="row" spacing={1}>
             <Stack
               alignItems="center"
               component={NextLink}
@@ -105,13 +106,13 @@ export const TopNav = (props) => {
               display="inline-flex"
               href={paths.index}
               spacing={1}
-              sx={{ textDecoration: 'none' }}
+              sx={{ textDecoration: "none" }}
             >
               <Box
                 sx={{
-                  display: 'inline-flex',
+                  display: "inline-flex",
                   height: 24,
-                  width: 24
+                  width: 24,
                 }}
               >
                 <Logo />
@@ -119,54 +120,49 @@ export const TopNav = (props) => {
               {mdUp && (
                 <Box
                   sx={{
-                    color: 'text.primary',
-                    fontFamily: '\'Plus Jakarta Sans\', sans-serif',
+                    color: "text.primary",
+                    fontFamily: "'Plus Jakarta Sans', sans-serif",
                     fontSize: 14,
                     fontWeight: 800,
-                    letterSpacing: '0.3px',
+                    letterSpacing: "0.3px",
                     lineHeight: 2.5,
-                    '& span': {
-                      color: 'primary.main'
-                    }
+                    "& span": {
+                      color: "primary.main",
+                    },
                   }}
                 >
                   Devias Kit <span>PRO</span>
                 </Box>
               )}
             </Stack>
-            <Chip
-              label="v6.0.0"
-              size="small"
-            />
+            <Chip label="v6.0.0" size="small" />
           </Stack>
+
           {mdUp && (
-            <Stack
-              alignItems="center"
-              direction="row"
-              spacing={2}
-            >
-              <Box
-                component="nav"
-                sx={{ height: '100%' }}
-              >
+            <Stack alignItems="center" direction="row" spacing={2}>
+              <Box component="nav" sx={{ height: "100%" }}>
                 <Stack
                   component="ul"
                   alignItems="center"
                   justifyContent="center"
                   direction="row"
-                  spacing={1}
+                  spacing={2}
                   sx={{
-                    height: '100%',
-                    listStyle: 'none',
+                    height: "100%",
+                    listStyle: "none",
                     m: 0,
-                    p: 0
+                    p: 0,
                   }}
                 >
                   <>
                     {items.map((item) => {
                       const checkPath = !!(item.path && pathname);
-                      const partialMatch = checkPath ? pathname.includes(item.path) : false;
-                      const exactMatch = checkPath ? pathname === item.path : false;
+                      const partialMatch = checkPath
+                        ? pathname.includes(item.path)
+                        : false;
+                      const exactMatch = checkPath
+                        ? pathname === item.path
+                        : false;
                       const active = item.children ? partialMatch : exactMatch;
 
                       return (
@@ -185,19 +181,21 @@ export const TopNav = (props) => {
               </Box>
             </Stack>
           )}
-          <Stack
-            alignItems="center"
-            direction="row"
-            justifyContent="flex-end"
-            spacing={2}
-            sx={{ flexGrow: 1 }}
-          >
+
+          <Stack alignItems="center" direction="row" spacing={2}>
             <Button
               component="a"
-              size={mdUp ? 'medium' : 'small'}
+              size={mdUp ? "medium" : "small"}
               href="https://mui.com/store/items/devias-kit-pro"
               target="_blank"
               variant="contained"
+              sx={{
+                background: "linear-gradient(90deg, #1e90ff, #8a2be2)", 
+                color: "#fff", 
+                "&:hover": {
+                  background: "linear-gradient(90deg, #12599c, #561e8f)", 
+                },
+              }}
             >
               Purchase Now
             </Button>
@@ -216,5 +214,5 @@ export const TopNav = (props) => {
 };
 
 TopNav.propTypes = {
-  onMobileNavOpen: PropTypes.func
+  onMobileNavOpen: PropTypes.func,
 };
