@@ -33,11 +33,12 @@ export const HomeCta = () => (
       <Stack
         direction="row"
         alignItems="center"
+        justifyContent='center'
         spacing={1}
         sx={{ paddingBottom: 8 }}
       >
         <PieChartIcon sx={{ fontSize: 50 }} />
-        <Typography align="left" color="inherit" variant="h2">
+        <Typography align="center" color="inherit" variant="h2">
           Start saving time today!
         </Typography>
       </Stack>

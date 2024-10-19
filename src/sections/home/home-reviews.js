@@ -82,13 +82,18 @@ export const HomeReviews = () => (
     <Container maxWidth="lg">
       <Stack spacing={8} sx={{ py: "120px" }}>
         <Stack spacing={2}>
-          <Stack direction="row" alignItems="center" spacing={1}>
+          <Stack
+            direction="row"
+            justifyContent="center"
+            alignItems="center"
+            spacing={1}
+          >
             <ReviewsIcon sx={{ fontSize: 50, color: "#1756fe" }} />
             <Typography align="left" variant="h2" color={"#1756fe"}>
               Loved by businesses worldwide.
             </Typography>
           </Stack>
-          <Typography align="left" color="text.secondary" variant="subtitle1">
+          <Typography align="center" color="text.secondary" variant="subtitle1">
             Our template is so simple that people can’t help but fall in love
             with it. Simplicity is easy when you just skip tons of
             mission-critical features.
@@ -101,7 +106,7 @@ export const HomeReviews = () => (
                 sx={{
                   height: "100%",
                   backgroundColor: "#e9f6ff",
-                   border: "1px solid #6297fb"
+                  border: "1px solid #6297fb",
                 }}
               >
                 <CardContent
