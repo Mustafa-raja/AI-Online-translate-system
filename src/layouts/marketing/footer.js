@@ -62,7 +62,7 @@ export const Footer = (props) => (
     sx={{
       backgroundColor: (theme) => theme.palette.mode === 'dark'
         ? 'neutral.800'
-        : 'neutral.50',
+        : 'neutral.800',
       borderTopColor: 'divider',
       borderTopStyle: 'solid',
       borderTopWidth: 1,
@@ -110,7 +110,7 @@ export const Footer = (props) => (
               </Box>
               <Box
                 sx={{
-                  color: 'text.primary',
+                  color: 'white',
                   fontFamily: '\'Plus Jakarta Sans\', sans-serif',
                   fontSize: 14,
                   fontWeight: 800,
@@ -176,7 +176,7 @@ export const Footer = (props) => (
                   />
                   <Link
                     href={item.path}
-                    color="text.primary"
+                    color="white"
                     variant="subtitle2"
                   >
                     {item.title}

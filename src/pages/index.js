@@ -20,7 +20,7 @@ const Page = () => {
         <HomeFeatures />
         <HomeCta />
         <HomeReviews />
-        <HomeFaqs />
+        {/* <HomeFaqs /> */}
       </main>
     </>
   );

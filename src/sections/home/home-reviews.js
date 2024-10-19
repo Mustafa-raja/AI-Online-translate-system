@@ -1,20 +1,14 @@
 import {
-  Box,
   Card,
+  Box,
   CardContent,
   Container,
-  Divider,
   Rating,
   Stack,
   Typography,
-  Unstable_Grid2 as Grid
-} from '@mui/material';
-import { LogoAccenture } from '../../components/companies-logos/logo-accenture';
-import { LogoAtt } from '../../components/companies-logos/logo-att';
-import { LogoAws } from '../../components/companies-logos/logo-aws';
-import { LogoBolt } from '../../components/companies-logos/logo-bolt';
-import { LogoSamsung } from '../../components/companies-logos/logo-samsung';
-import { LogoVisma } from '../../components/companies-logos/logo-visma';
+  Unstable_Grid2 as Grid,
+} from "@mui/material";
+import ReviewsIcon from "@mui/icons-material/Reviews";
 
 const QuotesIcon = () => (
   <svg
@@ -46,101 +40,119 @@ const QuotesIcon = () => (
 
 const reviews = [
   {
-    author: 'Oded R.',
-    message: 'I\'m highly satisfied with our decision to use this template. It\'s actually 2 for 1 - we got a beautiful design(responsive, looks great with so many different options and components) AND we got an excellent source code with an actual project [...]',
-    stars: 5
+    author: "Oded R.",
+    message:
+      "I'm highly satisfied with our decision to use this template. It's actually 2 for 1 - we got a beautiful design(responsive, looks great with so many different options and components) AND we got an excellent source code with an actual project [...]",
+    stars: 5,
   },
   {
-    author: 'Mark S.',
-    message: 'I really like the depth and quality with this template. Well constructed and a very useful source of ideas and best practices. I highly recommend it.',
-    stars: 5
+    author: "Mark S.",
+    message:
+      "I really like the depth and quality with this template. Well constructed and a very useful source of ideas and best practices. I highly recommend it.",
+    stars: 5,
   },
   {
-    author: 'Lorenz N.',
-    message: 'It comes packed with probably more components and feature samples than you will ever need in a single App. The code is well structured and the documentation covers all essential parts. They are maybe not covering [...]',
-    stars: 5
+    author: "Lorenz N.",
+    message:
+      "It comes packed with probably more components and feature samples than you will ever need in a single App. The code is well structured and the documentation covers all essential parts. They are maybe not covering [...]",
+    stars: 5,
   },
   {
-    author: 'Ruthy G.',
-    message: 'I received a kind, considerate and immediate response, thank you very much!',
-    stars: 5
+    author: "Ruthy G.",
+    message:
+      "I received a kind, considerate and immediate response, thank you very much!",
+    stars: 5,
   },
   {
-    author: 'Dean H.',
-    message: 'While many templates are next.js, the support is quick and AMAZING and I was able to port this to using react-router v6. Very happy with the quality of everything!!!',
-    stars: 5
+    author: "Dean H.",
+    message:
+      "While many templates are next.js, the support is quick and AMAZING and I was able to port this to using react-router v6. Very happy with the quality of everything!!!",
+    stars: 5,
   },
   {
-    author: 'Cole S.',
-    message: 'Great template and great customer support. Easy to customize, code is easy to read, documentation is good. Very happy!',
-    stars: 5
-  }
+    author: "Cole S.",
+    message:
+      "Great template and great customer support. Easy to customize, code is easy to read, documentation is good. Very happy!",
+    stars: 5,
+  },
 ];
 
 export const HomeReviews = () => (
   <div>
     <Container maxWidth="lg">
-      
-      <Stack
-        spacing={8}
-        sx={{ py: '120px' }}
-      >
+      <Stack spacing={8} sx={{ py: "120px" }}>
         <Stack spacing={2}>
-          <Typography
-            align="center"
-            variant="h3"
-          >
-            Loved by businesses worldwide.
-          </Typography>
-          <Typography
-            align="center"
-            color="text.secondary"
-            variant="subtitle1"
-          >
-            Our template is so simple that people can’t help but fall in love with it. Simplicity is easy when you just skip tons of mission-critical features.
+          <Stack direction="row" alignItems="center" spacing={1}>
+            <ReviewsIcon sx={{ fontSize: 50, color: "#1756fe" }} />
+            <Typography align="left" variant="h2" color={"#1756fe"}>
+              Loved by businesses worldwide.
+            </Typography>
+          </Stack>
+          <Typography align="left" color="text.secondary" variant="subtitle1">
+            Our template is so simple that people can’t help but fall in love
+            with it. Simplicity is easy when you just skip tons of
+            mission-critical features.
           </Typography>
         </Stack>
-        <Grid
-          container
-          spacing={3}
-        >
+        <Grid container spacing={3}>
           {reviews.map((review, index) => (
-            <Grid
-              key={index}
-              xs={12}
-              md={6}
-              lg={4}
-            >
-              <Card sx={{ height: '100%' }}>
+            <Grid key={index} xs={12} md={6} lg={4}>
+              <Card
+                sx={{
+                  height: "100%",
+                  backgroundColor: "#e9f6ff",
+                   border: "1px solid #6297fb"
+                }}
+              >
                 <CardContent
                   sx={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    position: 'relative',
-                    height: '100%'
+                    display: "flex",
+                    flexDirection: "column",
+                    position: "relative",
+                    height: "100%",
                   }}
                 >
-                  <Box sx={{ position: 'absolute' }}>
-                    <QuotesIcon />
-                  </Box>
-                  <div>
-                    <Rating
-                      readOnly
-                      sx={{ color: 'success.main' }}
-                      value={review.stars}
+                  <Stack direction="row" alignItems="center" spacing={2}>
+                    <Box
+                      component="img"
+                      src="/assets/profile.jpg"
+                      alt="Profile Picture"
+                      sx={{
+                        width: 80,
+                        height: 80,
+                        borderRadius: "50%",
+                        objectFit: "cover",
+                      }}
                     />
-                  </div>
+                    <div>
+                      <Typography fontWeight={600} color="#1756fe">
+                        {review.author}
+                      </Typography>
+                      <Stack
+                        alignItems="center"
+                        direction="row"
+                        flexWrap="wrap"
+                        spacing={1}
+                        // sx={{ my: 3 }}
+                      >
+                        <Rating readOnly value={5} precision={0.1} max={5} />
+                        <Typography
+                          color="#1756fe"
+                          variant="caption"
+                          sx={{ fontWeight: 700, fontSize: 15 }}
+                        >
+                          5/5
+                        </Typography>
+                      </Stack>
+                    </div>
+                  </Stack>
                   <Typography
                     sx={{
                       flexGrow: 1,
-                      mt: 2
+                      mt: 2,
                     }}
                   >
                     {review.message}
-                  </Typography>
-                  <Divider sx={{ my: 2 }} />
-                  <Typography color="text.secondary">
-                    {review.author}
                   </Typography>
                 </CardContent>
               </Card>

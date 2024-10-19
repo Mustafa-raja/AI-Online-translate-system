@@ -34,7 +34,7 @@ export const HomeHero = () => {
             <span
               style={{
                 background:
-                  "linear-gradient(to right, purple, #D5006D, purple)",
+                  "linear-gradient(to right, #b300b8, #D5006D, #b300b8)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 fontWeight: "bold",
@@ -42,7 +42,7 @@ export const HomeHero = () => {
             >
               UX is our Expertise,
             </span>
-            <span style={{ color: "#174bcf" }}> you focus on Developing.</span>
+            <span style={{ color: "#1756fe" }}> you focus on Developing.</span>
           </Typography>
           <Typography
             color="white"
