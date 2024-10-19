@@ -17,25 +17,25 @@ const services = [
     title: "Web Development",
     description:
       "We create responsive and dynamic websites tailored to your business needs, ensuring a seamless user experience across all devices.",
-    image: "https://placehold.co/600x400?text=placehold",
+    image: "/assets/placeholder1.jpg",
   },
   {
     title: "Mobile App Development",
     description:
       "Our team develops cutting-edge mobile applications for iOS and Android platforms, helping you reach your audience on the go.",
-    image: "https://placehold.co/600x400?text=placehold",
+    image: "/assets/placeholder2.jpg",
   },
   {
     title: "Cloud Solutions",
     description:
       "We provide scalable and secure cloud infrastructure solutions to help your business grow and adapt to changing demands.",
-    image: "https://placehold.co/600x400?text=placehold",
+    image: "/assets/placeholder3.jpg",
   },
   {
     title: "AI Integration",
     description:
       "Leverage the power of artificial intelligence to optimize your business processes and gain valuable insights from your data.",
-    image: "https://placehold.co/600x400?text=placehold",
+    image: "/assets/placeholder4.jpg",
   },
 ];
 
@@ -87,7 +87,7 @@ export const HomeFeatures = () => {
               <Card>
                 <CardMedia
                   component="img"
-                  height="250"
+                  height="300"
                   image={service.image}
                   alt={service.title}
                 />
